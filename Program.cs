@@ -16,16 +16,18 @@ namespace эвм6_1
             int n = Convert.ToInt32(Console.ReadLine());
 
             int[][] A = new int[n][];
-            for (int i = 0; i < n; i++)     
+            int[] stolb = new int[n];
+            for (int i = 0; i < n; i++)
             {
-                A[i] = new int[rnd.Next(1,5)];
-                for (int j = 0; j < i + 1; j++)
-                    A[i][j] = rnd.Next(-1, 5);
+                stolb[i] = rnd.Next(1, 5);
+                A[i] = new int[stolb[i]];
+                for (int j = 0; j < stolb[i]; j++)
+                    A[i][j] = rnd.Next(1, 5);
             }
 
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < ; j++)
+                for (int j = 0; j < stolb[i]; j++)
                 {
                     Console.Write("{0} ", A[i][j]);
                 }
@@ -36,7 +38,7 @@ namespace эвм6_1
             {
                 int e = 1;
                 int q = 0, w = 0;
-                for (int j = 0; j < i+1; j++)
+                for (int j = 0; j < stolb[i]; j++)
                 {
                     if (A[i][j] >= 0)
                     {
@@ -46,7 +48,7 @@ namespace эвм6_1
                 }
                 if (q == w)
                 {
-                    for (int t = 0; t < i+1; t++)
+                    for (int t = 0; t < stolb[i]; t++)
                         {
                             e = e * A[i][t];
                         }
